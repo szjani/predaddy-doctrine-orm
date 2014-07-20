@@ -1,0 +1,29 @@
+{
+    "name": "predaddy/predaddy-doctrine-orm",
+    "description": "Doctrine ORM based implementation classes for predaddy",
+    "license": "MIT",
+    "keywords": ["predaddy", "doctrine"],
+    "authors": [
+        {
+            "name": "Szurovecz János",
+            "homepage": "http://www.szjani.hu/"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "precore/precore": "1.8.*@dev",
+        "predaddy/predaddy": "3.0.*@dev",
+        "lf4php/lf4php": "~4.0",
+	"doctrine/orm": "~2.4",
+	"trf4php/trf4php-doctrine": "~1.2"
+    },
+    "require-dev": {
+        "satooshi/php-coveralls": "dev-master",
+        "phpunit/phpunit": "~4.1",
+        "lf4php/lf4php-log4php": "~2.0",
+        "jms/serializer": "~0.15"
+    },
+    "autoload": {
+        "psr-0": {"predaddy": "src/"}
+    }
+}

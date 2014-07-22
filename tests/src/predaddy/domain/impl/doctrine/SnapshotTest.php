@@ -26,7 +26,6 @@ namespace predaddy\domain\impl\doctrine;
 use PHPUnit_Framework_TestCase;
 use precore\util\UUID;
 use predaddy\domain\DefaultAggregateId;
-use predaddy\domain\UUIDAggregateId;
 
 class SnapshotTest extends PHPUnit_Framework_TestCase
 {

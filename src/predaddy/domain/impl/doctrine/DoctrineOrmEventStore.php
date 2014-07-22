@@ -26,12 +26,12 @@ namespace predaddy\domain\impl\doctrine;
 use ArrayIterator;
 use Doctrine\ORM\EntityManagerInterface;
 use precore\lang\ObjectClass;
-use predaddy\domain\AbstractSnapshotEventStore;
 use predaddy\domain\AggregateId;
 use predaddy\domain\DomainEvent;
-use predaddy\domain\EventSourcedAggregateRoot;
-use predaddy\domain\SnapshotEventStore;
-use predaddy\domain\SnapshotStrategy;
+use predaddy\domain\eventsourcing\AbstractSnapshotEventStore;
+use predaddy\domain\eventsourcing\EventSourcedAggregateRoot;
+use predaddy\domain\eventsourcing\SnapshotEventStore;
+use predaddy\domain\eventsourcing\SnapshotStrategy;
 use predaddy\serializer\PHPSerializer;
 use predaddy\serializer\Serializer;
 

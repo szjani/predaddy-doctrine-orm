@@ -23,16 +23,13 @@
 
 namespace predaddy\domain\impl\doctrine;
 
-use precore\lang\ObjectClass;
 use precore\util\UUID;
 use predaddy\domain\DefaultAggregateId;
-use predaddy\domain\DomainEvent;
 use predaddy\domain\DomainTestCase;
 use predaddy\domain\EventPublisher;
 use predaddy\domain\IncrementedEvent;
 use predaddy\domain\User;
 use predaddy\domain\UserCreated;
-use predaddy\domain\UUIDAggregateId;
 
 class DoctrineAggregateRootRepositoryTest extends DomainTestCase
 {

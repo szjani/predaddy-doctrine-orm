@@ -27,10 +27,10 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\SchemaTool;
 use Doctrine\ORM\Tools\Setup;
 use predaddy\domain\AggregateId;
-use predaddy\domain\CreateEventSourcedUser;
 use predaddy\domain\DomainTestCase;
-use predaddy\domain\EventSourcedUser;
-use predaddy\domain\Increment;
+use predaddy\domain\eventsourcing\CreateEventSourcedUser;
+use predaddy\domain\eventsourcing\EventSourcedUser;
+use predaddy\domain\eventsourcing\Increment;
 
 /**
  * Class DoctrineOrmEventStoreTest

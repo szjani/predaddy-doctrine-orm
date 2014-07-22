@@ -27,7 +27,6 @@ use DateTime;
 use PHPUnit_Framework_TestCase;
 use precore\util\UUID;
 use predaddy\domain\DefaultAggregateId;
-use predaddy\domain\UUIDAggregateId;
 
 class EventTest extends PHPUnit_Framework_TestCase
 {

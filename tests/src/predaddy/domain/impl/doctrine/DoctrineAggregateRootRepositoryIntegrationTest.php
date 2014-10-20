@@ -99,7 +99,7 @@ class DoctrineAggregateRootRepositoryIntegrationTest extends PHPUnit_Framework_T
     {
         $this->blockerInterceptor = new BlockerInterceptor();
         $this->eventBus = new EventBus(
-            new AnnotatedMessageHandlerDescriptorFactory(new DefaultFunctionDescriptorFactory()),
+            EventBus::DEFAULT_NAME,
             [$this->blockerInterceptor]
         );
         EventPublisher::instance()->setEventBus($this->eventBus);

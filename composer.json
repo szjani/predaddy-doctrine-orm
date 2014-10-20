@@ -14,8 +14,8 @@
         "precore/precore": "1.8.*@dev",
         "predaddy/predaddy": "3.0.*@dev",
         "lf4php/lf4php": "~4.0",
-	"doctrine/orm": "~2.4",
-	"trf4php/trf4php-doctrine": "~1.2"
+        "doctrine/orm": "~2.4",
+        "trf4php/trf4php-doctrine": "~1.2"
     },
     "require-dev": {
         "satooshi/php-coveralls": "dev-master",

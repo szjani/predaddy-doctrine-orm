@@ -87,9 +87,7 @@ class IncrementedVersionedArticleTest extends PHPUnit_Framework_TestCase
     {
         $eventStore = new DoctrineOrmEventStore(self::$entityManager, TrivialSnapshotStrategy::$ALWAYS);
         $this->eventBus = new EventBus(
-            new AnnotatedMessageHandlerDescriptorFactory(
-                new EventFunctionDescriptorFactory()
-            ),
+            EventBus::DEFAULT_NAME,
             [new EventPersister($eventStore)]
         );
         EventPublisher::instance()->setEventBus($this->eventBus);

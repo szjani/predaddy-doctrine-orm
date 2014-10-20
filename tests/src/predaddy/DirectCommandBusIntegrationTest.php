@@ -41,6 +41,7 @@ use predaddy\domain\UserCreated;
 use predaddy\eventhandling\EventBus;
 use predaddy\messagehandling\interceptors\EventPersister;
 use predaddy\util\TransactionalBuses;
+use predaddy\util\TransactionalBusesBuilder;
 use trf4php\doctrine\DoctrineTransactionManager;
 
 /**
@@ -93,12 +94,11 @@ class DirectCommandBusIntegrationTest extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $eventStore = new DoctrineOrmEventStore(self::$entityManager);
-        $transactionalBuses = TransactionalBuses::create(
-            new DoctrineTransactionManager(self::$entityManager),
-            new EventSourcingRepository($eventStore),
-            [],
-            [new EventPersister($eventStore)]
-        );
+        $transactionalBuses = TransactionalBusesBuilder::create(new DoctrineTransactionManager(self::$entityManager))
+            ->withRepository(new EventSourcingRepository($eventStore))
+            ->useDirectCommandBus()
+            ->withEventInterceptors([new EventPersister($eventStore)])
+            ->build();
         $this->commandBus = $transactionalBuses->commandBus();
         $this->eventBus = $transactionalBuses->eventBus();
     }

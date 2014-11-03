@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": ">=5.4",
-        "precore/precore": "1.8.*@dev",
+        "precore/precore": "1.8",
         "predaddy/predaddy": "3.0.*@dev",
         "lf4php/lf4php": "~4.0",
         "doctrine/orm": "~2.4",

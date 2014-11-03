@@ -98,10 +98,9 @@ class DoctrineAggregateRootRepositoryIntegrationTest extends PHPUnit_Framework_T
     protected function setUp()
     {
         $this->blockerInterceptor = new BlockerInterceptor();
-        $this->eventBus = new EventBus(
-            EventBus::DEFAULT_NAME,
-            [$this->blockerInterceptor]
-        );
+        $this->eventBus = EventBus::builder()
+            ->withInterceptors([$this->blockerInterceptor])
+            ->build();
         EventPublisher::instance()->setEventBus($this->eventBus);
         $this->userRepo = new DoctrineAggregateRootRepository(self::$entityManager);
         $this->unversionedUserRepo = new DoctrineAggregateRootRepository(self::$entityManager);

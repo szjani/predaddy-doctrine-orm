@@ -97,7 +97,7 @@ class DirectCommandBusIntegrationTest extends PHPUnit_Framework_TestCase
         $transactionalBuses = TransactionalBusesBuilder::create(new DoctrineTransactionManager(self::$entityManager))
             ->withRepository(new EventSourcingRepository($eventStore))
             ->useDirectCommandBus()
-            ->withEventInterceptors([new EventPersister($eventStore)])
+            ->interceptEventsWithinTransaction([new EventPersister($eventStore)])
             ->build();
         $this->commandBus = $transactionalBuses->commandBus();
         $this->eventBus = $transactionalBuses->eventBus();

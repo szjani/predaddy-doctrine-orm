@@ -25,7 +25,7 @@ namespace predaddy\domain\impl\doctrine;
 
 use PHPUnit_Framework_TestCase;
 use precore\util\UUID;
-use predaddy\domain\DefaultAggregateId;
+use predaddy\domain\GenericAggregateId;
 
 class SnapshotTest extends PHPUnit_Framework_TestCase
 {
@@ -33,7 +33,7 @@ class SnapshotTest extends PHPUnit_Framework_TestCase
     {
         $aggregateRoot = __METHOD__;
         $type = __CLASS__;
-        $aggregateId = new DefaultAggregateId(UUID::randomUUID()->toString(), $type);
+        $aggregateId = new GenericAggregateId(UUID::randomUUID()->toString(), $type);
         $version = 2;
         $snapshot = new Snapshot($aggregateId->value(), $aggregateRoot, $type, $version);
         self::assertEquals($aggregateId->value(), $snapshot->getAggregateId());
@@ -46,7 +46,7 @@ class SnapshotTest extends PHPUnit_Framework_TestCase
     {
         $aggregateRoot = __METHOD__;
         $type = __CLASS__;
-        $aggregateId = new DefaultAggregateId(UUID::randomUUID()->toString(), $type);
+        $aggregateId = new GenericAggregateId(UUID::randomUUID()->toString(), $type);
         $version = 2;
         $snapshot = new Snapshot($aggregateId->value(), $aggregateRoot, $type, $version);
         $newData = 'data';

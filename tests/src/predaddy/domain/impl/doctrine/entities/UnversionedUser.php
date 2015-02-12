@@ -62,7 +62,7 @@ class UnversionedUser extends AbstractAggregateRoot
 
     public function getId()
     {
-        return new DefaultAggregateId($this->id, self::className());
+        return UnversionedUserId::from($this->id);
     }
 
     public function increment()

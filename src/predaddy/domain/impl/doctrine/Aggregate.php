@@ -27,8 +27,8 @@ use DateTime;
 use precore\lang\Object;
 use Doctrine\ORM\Mapping as ORM;
 use predaddy\domain\AggregateId;
-use predaddy\domain\DefaultAggregateId;
 use predaddy\domain\DomainEvent;
+use predaddy\domain\GenericAggregateId;
 use UnexpectedValueException;
 
 /**
@@ -97,7 +97,7 @@ class Aggregate extends Object
     public function createMetaEvent(DomainEvent $event, $serializedEvent)
     {
         $this->updated = clone $event->created();
-        $aggregateId = new DefaultAggregateId($this->getAggregateId(), $this->getType());
+        $aggregateId = new GenericAggregateId($this->getAggregateId(), $this->getType());
         if (!$aggregateId->equals($event->aggregateId())) {
             throw new UnexpectedValueException(
                 sprintf(

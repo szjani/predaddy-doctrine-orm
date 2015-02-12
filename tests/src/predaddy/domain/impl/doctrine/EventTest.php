@@ -26,14 +26,14 @@ namespace predaddy\domain\impl\doctrine;
 use DateTime;
 use PHPUnit_Framework_TestCase;
 use precore\util\UUID;
-use predaddy\domain\DefaultAggregateId;
+use predaddy\domain\GenericAggregateId;
 
 class EventTest extends PHPUnit_Framework_TestCase
 {
     public function testGetters()
     {
         $type = __CLASS__;
-        $aggregateId = new DefaultAggregateId(UUID::randomUUID()->toString(), $type);
+        $aggregateId = new GenericAggregateId(UUID::randomUUID()->toString(), $type);
         $created = new DateTime();
         $serializedEvent = __METHOD__;
         $stateHash = UUID::randomUUID()->toString();

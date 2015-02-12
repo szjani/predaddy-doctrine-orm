@@ -69,7 +69,7 @@ class User extends AbstractAggregateRoot
 
     public function getId()
     {
-        return new DefaultAggregateId($this->id, self::className());
+        return UserId::from($this->id);
     }
 
     public function increment()

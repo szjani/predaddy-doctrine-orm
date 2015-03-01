@@ -25,9 +25,11 @@ namespace predaddy\domain\impl\doctrine;
 
 use Doctrine\ORM\EntityManagerInterface;
 use InvalidArgumentException;
-use predaddy\domain\AbstractRepository;
+use precore\lang\Object;
+use precore\util\Preconditions;
 use predaddy\domain\AggregateId;
 use predaddy\domain\AggregateRoot;
+use predaddy\domain\Repository;
 
 /**
  * Generic repository class based on Doctrine ORM.
@@ -37,7 +39,7 @@ use predaddy\domain\AggregateRoot;
  *
  * @author Janos Szurovecz <szjani@szjani.hu>
  */
-class DoctrineAggregateRootRepository extends AbstractRepository
+class DoctrineAggregateRootRepository extends Object implements Repository
 {
     /**
      * @var EntityManagerInterface
@@ -62,9 +64,7 @@ class DoctrineAggregateRootRepository extends AbstractRepository
     public function load(AggregateId $aggregateId)
     {
         $result = $this->getEntityManager()->find($aggregateId->aggregateClass(), $aggregateId->value());
-        if ($result === null) {
-            $this->throwInvalidAggregateIdException($aggregateId);
-        }
+        Preconditions::checkArgument($result !== null, 'Aggregate with ID [%s] does not exist', $aggregateId);
         return $result;
     }
 
